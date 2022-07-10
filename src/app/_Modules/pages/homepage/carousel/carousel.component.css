@@ -1,0 +1,7 @@
+#main-slider, .carousel, .carousel-inner, .item, .container {
+  max-height: 80vh !important;
+}
+
+.slide-margin {
+  margin-top: 60px !important;
+}
