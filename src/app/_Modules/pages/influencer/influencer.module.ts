@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { InfluencerRoutingModule } from './influencer-routing.module';
+import { InfluencerComponent } from './influencer/influencer.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    InfluencerComponent
+  ],
   imports: [
     CommonModule,
     InfluencerRoutingModule
