@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { InfluencerRoutingModule } from './influencer-routing.module';
 import { InfluencerComponent } from './influencer/influencer.component';
+import { InfluencerViewComponent } from './influencer-view/influencer-view.component';
 
 
 @NgModule({
   declarations: [
-    InfluencerComponent
+    InfluencerComponent,
+    InfluencerViewComponent
   ],
   imports: [
     CommonModule,

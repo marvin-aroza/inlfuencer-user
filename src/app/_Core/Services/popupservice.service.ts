@@ -4,6 +4,9 @@ import { RegistrationComponent } from 'src/app/-shared/components/registration/r
 //Material import for modal
 import { MatDialog } from '@angular/material/dialog';
 
+//Swal import
+import Swal from 'sweetalert2';
+
 export interface DialogData {
   animal: string;
   name: string;
@@ -17,7 +20,7 @@ export class PopupserviceService {
   animal!: string;
   name!: string;
 
-  constructor(public dialog: MatDialog) { 
+  constructor(public dialog: MatDialog) {
 
   }
 
@@ -55,5 +58,23 @@ export class PopupserviceService {
     dialogRef.afterClosed().subscribe((result: { food: any; }) => {
       console.log('The dialog was closed', result);
     });
+  }
+
+  successPopup(message:string){
+    Swal.fire({
+      text: message,
+      icon: 'success',
+      showCancelButton: false,
+      timer: 3000,
+    })
+  }
+
+  errorPopup(message:string) {
+    Swal.fire({
+        icon: 'error',
+        title: message,
+        showConfirmButton: false,
+        timer: 3000,
+      });
   }
 }

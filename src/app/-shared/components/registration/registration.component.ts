@@ -69,7 +69,7 @@ export class RegistrationComponent implements OnInit {
       }
 
       //Registration service call to send request to server
-      this.userService.addUser(formData).subscribe(res => {
+      this.userService.addUser(formData).subscribe((res: { status: any; message: any; }) => {
         console.log(res);
         if(res.status) {
           Swal.fire({
