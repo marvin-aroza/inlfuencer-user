@@ -1,0 +1,106 @@
+<div class="registration-form" style="padding-top: 0; padding-bottom: 0" *ngIf="formLoaded">
+  <form  [formGroup]="form" (ngSubmit)="register()">
+    <div>
+        <h1 style="color: black;">Sign Up</h1>
+    </div>
+    <div class="col-6 py-3 form-group">
+      <input
+        type="text"
+        class="form-control item fh5co_contact_text_box"
+        placeholder="Enter Your First Name"
+        formControlName="first_name"
+      />
+      <div
+        *ngIf="isFormSubmitted && f['first_name'].errors"
+        class="invalid-feedback valid-error"
+        style="font-size: 0.7rem; color: red; position: absolute"
+      >
+        <div *ngIf="f['first_name']['errors']['required']">
+          *First Name is required
+        </div>
+      </div>
+    </div>
+    <div class="col-6 py-3 form-group">
+      <input
+        type="text"
+        class="form-control item fh5co_contact_text_box"
+        placeholder="Enter Your Last Name"
+        formControlName="last_name"
+      />
+      <div
+        *ngIf="isFormSubmitted && f['last_name'].errors"
+        class="invalid-feedback valid-error"
+        style="font-size: 0.7rem; color: red; position: absolute"
+      >
+        <div *ngIf="f['last_name']['errors']['required']">
+          *Last Name is required
+        </div>
+      </div>
+    </div>
+    <div class="col-6 py-3 form-group">
+      <input
+        type="email"
+        class="form-control item fh5co_contact_text_box"
+        placeholder="Enter Your Email"
+        formControlName="email"
+      />
+      <div
+        *ngIf="isFormSubmitted && f['email'].errors"
+        class="invalid-feedback valid-error"
+        style="font-size: 0.7rem; color: red; position: absolute"
+      >
+        <div *ngIf="f['email'].errors['required']">*Email is required</div>
+      </div>
+      <div
+        *ngIf="isFormSubmitted && f['email'].errors"
+        class="invalid-feedback valid-error"
+        style="font-size: 0.7rem; color: red; position: absolute"
+      >
+        <div *ngIf="f['email'].errors['email']">*Enter a valid email</div>
+      </div>
+    </div>
+    <div class="col-6 py-3 form-group">
+      <input
+        type="password"
+        class="form-control item fh5co_contact_text_box"
+        placeholder="Enter Your Password"
+        formControlName="password"
+      />
+      <div
+        *ngIf="isFormSubmitted && f['password'].errors"
+        class="invalid-feedback valid-error"
+        style="font-size: 0.7rem; color: red; position: absolute"
+      >
+        <div *ngIf="f['password'].errors['required']">
+          *Password is required
+        </div>
+      </div>
+    </div>
+    <div class="col-6 py-3 form-group">
+      <input
+        type="password"
+        class="form-control item fh5co_contact_text_box"
+        placeholder="Confirm Your Password"
+        formControlName="confirm_password"
+      />
+      <div
+        *ngIf="isFormSubmitted && f['confirm_password'].errors"
+        class="invalid-feedback valid-error"
+        style="font-size: 0.7rem; color: red; position: absolute"
+      >
+        <div *ngIf="f['confirm_password'].errors['required']">
+          *Confirm Password is required
+        </div>
+        <div *ngIf="f['confirm_password'].errors['mustMatch']">
+          *Password does not match
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-block create-account">
+        Register
+      </button>
+      <p style="color: black;">Already registered? <a style="color: blue;" (click)="login()">Click here</a> to login</p>
+    </div>
+  </form>
+</div>

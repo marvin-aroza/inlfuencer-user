@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row" *ngIf="influencerList">
+    <h1 class="header-title" style="color: black;">Influencer List</h1>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" *ngFor="let influencer of influencerList">
+      <div class="my-list">
+        <img
+        [src]="
+        influencer.profImage
+          ? influencer.profImage
+          : 'https://media.istockphoto.com/vectors/image-preview-icon-picture-placeholder-for-website-or-uiux-design-vector-id1222357475?k=20&m=1222357475&s=170667a&w=0&h=YGycIDbBRAWkZaSvdyUFvotdGfnKhkutJhMOZtIoUKY='
+      "
+        />
+        <h3>{{ influencer.firstname}} {{ influencer.lastname}}</h3>
+        <!-- <span>{{ influencer?.profDetails[0]?.budget}}</span> -->
+        <!-- <span class="pull-right">SKU:100022</span>
+        <div class="offer">Extra 5% Off. Cart value Rs 500</div> -->
+        <div class="detail">
+          <img
+          [src]="
+          influencer.profImage
+            ? influencer.profImage
+            : 'https://media.istockphoto.com/vectors/image-preview-icon-picture-placeholder-for-website-or-uiux-design-vector-id1222357475?k=20&m=1222357475&s=170667a&w=0&h=YGycIDbBRAWkZaSvdyUFvotdGfnKhkutJhMOZtIoUKY='
+        "
+          />
+          <a href="#" class="btn btn-info">Deatil</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

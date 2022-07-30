@@ -1,0 +1,53 @@
+<div class="registration-form" style="padding-top: 0; padding-bottom: 0" *ngIf="formLoaded">
+    <form  [formGroup]="form" (ngSubmit)="login()">
+      <div>
+          <h1 style="color: black;">Sign Up</h1>
+      </div>
+      <div class="col-6 py-3 form-group">
+        <input
+          type="email"
+          class="form-control item fh5co_contact_text_box"
+          placeholder="Enter Your Email"
+          formControlName="email"
+        />
+        <div
+          *ngIf="isFormSubmitted && f['email'].errors"
+          class="invalid-feedback valid-error"
+          style="font-size: 0.7rem; color: red; position: absolute"
+        >
+          <div *ngIf="f['email'].errors['required']">*Email is required</div>
+        </div>
+        <div
+          *ngIf="isFormSubmitted && f['email'].errors"
+          class="invalid-feedback valid-error"
+          style="font-size: 0.7rem; color: red; position: absolute"
+        >
+          <div *ngIf="f['email'].errors['email']">*Enter a valid email</div>
+        </div>
+      </div>
+      <div class="col-6 py-3 form-group">
+        <input
+          type="password"
+          class="form-control item fh5co_contact_text_box"
+          placeholder="Enter Your Password"
+          formControlName="password"
+        />
+        <div
+          *ngIf="isFormSubmitted && f['password'].errors"
+          class="invalid-feedback valid-error"
+          style="font-size: 0.7rem; color: red; position: absolute"
+        >
+          <div *ngIf="f['password'].errors['required']">
+            *Password is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-block create-account">
+          Login
+        </button>
+        <p style="color: black;">Dont have an account? <a style="color: blue;" (click)="register()">Click here</a> to sign up</p>
+      </div>
+    </form>
+  </div>
+  
