@@ -48,15 +48,16 @@ export class AuthService {
 
   //user details in subject behaviour
   saveLoginDetails(userData: User) {
-    this.saveToken(userData.token, userData.role, userData.id);
+    this.saveToken(userData.token, userData.role, userData.id, userData);
     this.userData.next(userData);
   }
 
   //save token in localstorage
-  saveToken(token: string, role: string, id:string) {
+  saveToken(token: string, role: string, id:string, userData:any) {
     localStorage.setItem('token', token);
     localStorage.setItem('role', role);
     localStorage.setItem('id', id);
+    localStorage.setItem('userData', JSON.stringify(userData));
   }
 
   //get user token from localstorage
@@ -72,6 +73,10 @@ export class AuthService {
   //get user id
   getId() {
     return localStorage.getItem('id');
+  }
+
+  getUserDetails() {
+    return JSON.parse(localStorage.getItem('userData') || '')
   }
 
   //logout
