@@ -30,6 +30,10 @@ export class HeaderComponent implements OnInit {
     this.userDetaisl = this.authService.getUserDetails();
   }
 
+  logout() {
+    this.popupService.logout()
+  }
+
   // onNoClick(): void {
   //   this.dialogRef.close();
   // }
