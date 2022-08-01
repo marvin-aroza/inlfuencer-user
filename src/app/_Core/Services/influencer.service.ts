@@ -28,4 +28,33 @@ export class InfluencerService {
         })
       );
   }
+
+  //get user by id
+  getInfluencerById(id: any) {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers = headers.append('Accept', 'application/json');
+    return this.http
+      .get<any>(`${environment.apiUrl}influencer/${id}`, {
+        headers: headers,
+      })
+      .pipe(
+        map((result: any) => {
+          result.data.status = result.data.isActive ? 'Active': 'Inactive'
+          result.data.profImage = result.data.profImage ? result.data.profImage: 'assets/assets/img/undraw_profile.svg'
+          return result;
+        })
+      );
+  }
+
+  // request collab
+  requestCollab(body: any) {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers = headers.append('Accept', 'application/json');
+    return this.http
+      .post<any>(`${environment.apiUrl}collab/request-collab`, body, {
+        headers: headers,
+      });
+  }
 }

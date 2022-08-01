@@ -41,22 +41,17 @@
 
           <div class="collapse navbar-collapse navbar-right">
               <ul class="nav navbar-nav">
-                  <li [routerLink]="['/']" routerLinkActive="active"><a >Home</a></li>
+                  <li [routerLink]="['/home']" routerLinkActive="active"><a >Home</a></li>
                   <li [routerLink]="['/about']" routerLinkActive="active"><a >About Us</a></li>
                   <li [routerLink]="['/services']" routerLinkActive="active"><a >Services</a></li>
-                  <li [routerLink]="['/portfolio']" routerLinkActive="active "><a >Portfolio</a></li>
-                  <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown-menu">
-                          <li><a href="blog-item.html">Blog Single</a></li>
-                          <li><a href="pricing.html">Pricing</a></li>
-                          <li><a href="404.html">404</a></li>
-                          <li><a href="shortcodes.html">Shortcodes</a></li>
-                      </ul>
-                  </li>
-                  <li><a [routerLink]="['/blog']" routerLinkActive="active">Blog</a></li>
-                  <li><a [routerLink]="['/contact']" routerLinkActive="active">Contact</a></li>
-                  <li><a (click)="openModal()">Login</a></li>
+                  <li><a [routerLink]="['/influencer']" routerLinkActive="active">influencers</a></li>
+                  <li *ngIf="!userDetaisl; else loggedIn"><a style="cursor: pointer;" (click)="openModal()" style="background-color: white;color:black">Login</a></li>
+                  <<ng-template #loggedIn>
+                    <li>
+                      <img class="img-rounded-circle" style="width: 50px;" src="assets/images/blog/blog1.jpg">
+                    </li>
+                  </ng-template>
+
               </ul>
           </div>
       </div><!--/.container-->
