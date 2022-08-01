@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 //Swal import
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 export interface DialogData {
   animal: string;
@@ -20,7 +21,7 @@ export class PopupserviceService {
   animal!: string;
   name!: string;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private router: Router) {
 
   }
 
@@ -75,6 +76,15 @@ export class PopupserviceService {
         title: message,
         showConfirmButton: false,
         timer: 3000,
+      });
+  }
+
+  //logout
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
+      .then(() => {
+        window.location.reload();
       });
   }
 }
