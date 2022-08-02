@@ -60,7 +60,24 @@ export class ProfileComponent implements OnInit {
   get f() { return this.form.controls; }
 
   update() {
+    this.isFormSubmitted = true;
+    let id = localStorage.getItem('id');
 
+    if(this.form.invalid) {
+      return
+    }
+
+    let formData = {
+      "firstname": this.f?.['first_name'].value,
+      "lastname": this.f?.['last_name'].value,
+      "email": this.f?.['email'].value
+    }
+
+    this.userService.updateAdmin(formData, id).subscribe(res => {
+      if(res.status) {
+            this.ngOnInit();
+          }
+    });
   }
 
   getDetails() {
