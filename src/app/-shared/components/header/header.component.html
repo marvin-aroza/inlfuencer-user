@@ -46,7 +46,7 @@
                   <li [routerLink]="['/services']" routerLinkActive="active"><a >Services</a></li>
                   <li><a [routerLink]="['/influencer']" routerLinkActive="active">influencers</a></li>
                   <li *ngIf="!userDetaisl; else loggedIn"><a style="cursor: pointer;" (click)="openModal()" style="background-color: white;color:black">Login</a></li>
-                  <<ng-template #loggedIn>
+                  <ng-template #loggedIn>
                     <li >
                       <img data-toggle="dropdown" class="img-rounded-circle dropdown-toggle" style="width: 50px;" src="assets/images/blog/blog1.jpg">
                       <ul class="dropdown-menu">

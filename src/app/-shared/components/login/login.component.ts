@@ -69,6 +69,7 @@ export class LoginComponent implements OnInit {
             }).then(() => {
               this.popupService.close();
             });
+            window.location.reload()
         } else {
           Swal.fire({
             icon: 'error',
